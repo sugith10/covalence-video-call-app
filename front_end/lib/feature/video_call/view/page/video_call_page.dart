@@ -6,7 +6,8 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 class VideoCallPage extends StatefulWidget {
   final String roomId;
-  const VideoCallPage({required this.roomId, super.key});
+
+  const VideoCallPage({required this.roomId, Key? key}) : super(key: key);
 
   @override
   State<VideoCallPage> createState() => _VideoCallPageState();
@@ -47,7 +48,7 @@ class _VideoCallPageState extends State<VideoCallPage> {
   }
 
   void _connectToSocket() {
-    log("socket code");
+    log("Connecting to socket");
     try {
       socket = IO.io('http://10.4.2.248:3001', <String, dynamic>{
         'transports': ['websocket'],
@@ -55,9 +56,8 @@ class _VideoCallPageState extends State<VideoCallPage> {
       });
 
       socket.on('connect', (_) {
-        log('connected');
+        log('Socket connected');
         socket.emit('join-room', {
-          'email': 'your_emai@example.com', // replace with actual email
           'roomId': widget.roomId,
         });
       });
@@ -124,7 +124,6 @@ class _VideoCallPageState extends State<VideoCallPage> {
         'sdpSemantics': 'unified-plan',
       });
 
-      // Get the video and audio tracks from the local stream
       _localStream.getTracks().forEach((track) {
         _peerConnection.addTrack(track, _localStream);
       });

@@ -1,5 +1,5 @@
-import 'package:covalence/core/asset_path/app_asset.dart';
-import 'package:covalence/feature/home/view/page/home_page.dart';
+import '../../../../core/asset_path/app_asset.dart';
+import '../../../home/view/page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -38,6 +38,10 @@ class WelcomePage extends StatelessWidget {
                 );
               },
             ),
+            const SizedBox(height: 20),
+            const FittedBox(
+                child:
+                    Text('Lorem Ipsum is simply dummy text of the printing.')),
             const Spacer(flex: 1),
           ],
         ),

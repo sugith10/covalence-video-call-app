@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:covalence/core/widget/app_logo.dart';
-import 'package:covalence/feature/auth/view/page/welcome_page.dart';
+import '../../core/widget/app_logo.dart';
+import '../auth/view/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/util/transiton.dart';
